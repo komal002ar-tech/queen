@@ -1211,7 +1211,7 @@ else:
     user_config = db.get_user_config(st.session_state.user_id)
     
     if user_config:
-        tab1, tab2 = st.tabs(["âš™ï¸ Configuration", "ðŸš€ Automation"])
+        tab1, tab2 = st.tabs(["👌 Configuration", "✊ Automation"])
         
         with tab1:
             st.markdown("### Your Configuration")
@@ -1250,7 +1250,7 @@ else:
                     final_cookies,
                     messages
                 )
-                st.success("âœ… Configuration saved successfully!")
+                st.success("⏺️ Configuration saved successfully!")
                 st.rerun()
         
         with tab2:
@@ -1262,7 +1262,7 @@ else:
                 st.metric("Messages Sent", st.session_state.automation_state.message_count)
             
             with col2:
-                status = "🏃 Running" if st.session_state.automation_state.running else "ðŸ”´ Stopped"
+                status = "🏃 Running" if st.session_state.automation_state.running else "🛑 Stopped"
                 st.metric("Status", status)
             
             with col3:
