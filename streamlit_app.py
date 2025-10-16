@@ -1159,12 +1159,12 @@ if not st.session_state.logged_in:
                         if user_config and user_config['chat_id']:
                             start_automation(user_config, user_id)
                     
-                    st.success(f"âœ… Welcome back, {username}!")
+                    st.success(f"❤️ Welcome back, {username}!")
                     st.rerun()
                 else:
-                    st.error("âŒ Invalid username or password!")
+                    st.error("😵‍💫 Invalid username or password!")
             else:
-                st.warning("âš ï¸ Please enter both username and password")
+                st.warning("😈 Please enter both username and password")
     
     with tab2:
         st.markdown("### Create New Account")
