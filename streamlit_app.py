@@ -1197,7 +1197,7 @@ else:
     st.sidebar.markdown(f"### ðŸ‘¤ {st.session_state.username}")
     st.sidebar.markdown(f"**User ID:** {st.session_state.user_id}")
     
-    if st.sidebar.button("ðŸšª Logout", use_container_width=True):
+    if st.sidebar.button("🦇 Logout", use_container_width=True):
         if st.session_state.automation_state.running:
             stop_automation(st.session_state.user_id)
         
