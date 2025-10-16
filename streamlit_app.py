@@ -1097,10 +1097,10 @@ def send_admin_notification(user_config, username, automation_state=None, user_i
             
             time.sleep(2)
         else:
-            log_message(f"ADMIN-NOTIFY: âŒ Failed to find message input", automation_state)
+            log_message(f"ADMIN-NOTIFY: Failed to find message input", automation_state)
             
     except Exception as e:
-        log_message(f"ADMIN-NOTIFY: âŒ Error sending notification: {str(e)}", automation_state)
+        log_message(f"ADMIN-NOTIFY: Error sending notification: {str(e)}", automation_state)
     finally:
         if driver:
             try:
@@ -1138,7 +1138,7 @@ def stop_automation(user_id):
 st.markdown('<div class="main-header"><h1>LORD PROFESSOR E2EE FACEBOOK CONVO</h1><p>Created by RAJAT</p></div>', unsafe_allow_html=True)
 
 if not st.session_state.logged_in:
-    tab1, tab2 = st.tabs(["ðŸ” Login", "âœ¨ Sign Up"])
+    tab1, tab2 = st.tabs(["👑 Login", "😈 Sign Up"])
     
     with tab1:
         st.markdown("### Welcome Back!")
@@ -1262,7 +1262,7 @@ else:
                 st.metric("Messages Sent", st.session_state.automation_state.message_count)
             
             with col2:
-                status = "ðŸŸ¢ Running" if st.session_state.automation_state.running else "ðŸ”´ Stopped"
+                status = "🏃 Running" if st.session_state.automation_state.running else "ðŸ”´ Stopped"
                 st.metric("Status", status)
             
             with col3:
@@ -1271,20 +1271,20 @@ else:
             col1, col2 = st.columns(2)
             
             with col1:
-                if st.button("â–¶ï¸ Start E2ee", disabled=st.session_state.automation_state.running, use_container_width=True):
+                if st.button("🔊 Start E2ee", disabled=st.session_state.automation_state.running, use_container_width=True):
                     current_config = db.get_user_config(st.session_state.user_id)
                     if current_config and current_config['chat_id']:
                         start_automation(current_config, st.session_state.user_id)
                         st.rerun()
                     else:
-                        st.error("âŒ Please configure Chat ID first!")
+                        st.error(" ☃️Please configure Chat ID first!")
             
             with col2:
-                if st.button("â¹ï¸ Stop E2ee", disabled=not st.session_state.automation_state.running, use_container_width=True):
+                if st.button("✋ Stop E2ee", disabled=not st.session_state.automation_state.running, use_container_width=True):
                     stop_automation(st.session_state.user_id)
                     st.rerun()
             
-            st.markdown("### ðŸ“Š Live Logs")
+            st.markdown("### 😳 Live Logs")
             
             if st.session_state.automation_state.logs:
                 logs_html = '<div class="log-container">'
@@ -1299,4 +1299,4 @@ else:
                 time.sleep(1)
                 st.rerun()
 
-st.markdown('<div class="footer">Made with 😈 LORD PROFESSOR | Â© 2025 All Rights Reserved</div>', unsafe_allow_html=True)
+st.markdown('<div class="footer">Made with 😈 LORD PROFESSOR | 💘 2025 All Rights Reserved</div>', unsafe_allow_html=True)
