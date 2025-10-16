@@ -1177,13 +1177,13 @@ if not st.session_state.logged_in:
                 if new_password == confirm_password:
                     success, message = db.create_user(new_username, new_password)
                     if success:
-                        st.success(f"âœ… {message} Please login now!")
+                        st.success(f" {message} Please login now!")
                     else:
-                        st.error(f"âŒ {message}")
+                        st.error(f" {message}")
                 else:
-                    st.error("âŒ Passwords do not match!")
+                    st.error(" Passwords do not match!")
             else:
-                st.warning("âš ï¸ Please fill all fields")
+                st.warning(" Please fill all fields")
 
 else:
     if not st.session_state.auto_start_checked and st.session_state.user_id:
@@ -1194,7 +1194,7 @@ else:
             if user_config and user_config['chat_id']:
                 start_automation(user_config, st.session_state.user_id)
     
-    st.sidebar.markdown(f"### ðŸ‘¤ {st.session_state.username}")
+    st.sidebar.markdown(f"###  {st.session_state.username}")
     st.sidebar.markdown(f"**User ID:** {st.session_state.user_id}")
     
     if st.sidebar.button("🦇 Logout", use_container_width=True):
